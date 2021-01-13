@@ -7,7 +7,15 @@ const Survey = () => <h2>Survey</h2>;
 const Landing = () => <h2>Landing</h2>;
 
 const App = () => {
-  return <div>Hello</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Route path='/' component={Landing} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
