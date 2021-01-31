@@ -7,9 +7,17 @@ class Header extends Component {
       case null:
         return 'still deciding';
       case false:
-        return 'im logged out';
+        return (
+          <li>
+            <a href='/auth/google'>Login with google</a>
+          </li>
+        );
       default:
-        return 'im logged in';
+        return (
+          <li>
+            <a>Logout</a>
+          </li>
+        );
     }
   }
 
