@@ -7,11 +7,11 @@ class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return 'still deciding';
+        return;
       case false:
         return (
           <li>
-            <a href='/auth/google'>Login with google</a>
+            <a href='/auth/google'>Login With Google</a>
           </li>
         );
       default:
@@ -19,8 +19,10 @@ class Header extends Component {
           <li key='1'>
             <Payments />
           </li>,
-          <li key='3'>Credits: {this.props.auth.credits}</li>,
-          <li key='2' style={{ margin: '0 10px' }}>
+          <li key='3' style={{ margin: '0 10px' }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key='2'>
             <a href='/api/logout'>Logout</a>
           </li>,
         ];
@@ -37,10 +39,7 @@ class Header extends Component {
           >
             Emaily
           </Link>
-          <ul className='right'>
-            {this.renderContent()}
-            <li></li>
-          </ul>
+          <ul className='right'>{this.renderContent()}</ul>
         </div>
       </nav>
     );
@@ -48,9 +47,7 @@ class Header extends Component {
 }
 
 function mapStateToProps({ auth }) {
-  return {
-    auth: auth,
-  };
+  return { auth };
 }
 
-export default connect()(Header);
+export default connect(mapStateToProps)(Header);
