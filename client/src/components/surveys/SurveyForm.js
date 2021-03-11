@@ -31,8 +31,11 @@ class SurveyForm extends Component {
           onSubmit={this.props.handleSubmit((values) => console.log(values))}
         >
           {this.renderFields()}
-          <Field type='text' name='surveyTitle' component='input' />
-          <button type='submit'>Submit</button>
+          <link to='surveys' className='red btn-flat white-text'></link>
+          <button className='teal btn-flat right white-text' type='submit'>
+            Submit
+            <i className='material-icons right'>done</i>
+          </button>
         </form>
       </div>
     );
